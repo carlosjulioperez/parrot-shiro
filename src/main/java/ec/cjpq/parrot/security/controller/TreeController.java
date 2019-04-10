@@ -1,10 +1,6 @@
 package ec.cjpq.parrot.security.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
@@ -12,10 +8,7 @@ import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Listen;
 import org.zkoss.zk.ui.select.annotation.Wire;
 
-import org.zkoss.zul.DefaultTreeModel;
-import org.zkoss.zul.DefaultTreeNode;
 import org.zkoss.zul.Tree;
-import org.zkoss.zul.TreeModel;
 import org.zkoss.zul.Treeitem;
 
 import ec.cjpq.parrot.security.controller.MenuItem;
@@ -30,32 +23,8 @@ public class TreeController extends SelectorComposer<Component>{
     public void doAfterCompose(Component comp) throws Exception {
         super.doAfterCompose(comp);
 
-        rootTree.setModel(buildModel());
+        rootTree.setModel(new MenuTreeModel().getModel());
         rootTree.setItemRenderer(new MenuItemRenderer());
-    }
-
-    private TreeModel buildModel(){
-        // http://zkfiddle.org/sample/1qfattf/3-Tree-with-onSelect-and-onOpen#source-2
-        List<DefaultTreeNode<MenuItem>> rootChildren = new ArrayList<DefaultTreeNode<MenuItem>>();
-
-        Subject currentUser = SecurityUtils.getSubject();
-        if (currentUser.hasRole("ei")) {
-            List<DefaultTreeNode<MenuItem>> nodeChildren = new ArrayList<DefaultTreeNode<MenuItem>>();
-            nodeChildren.add(new DefaultTreeNode(new MenuItem("0101", "Configuración",           "/ei/configuracion.zul")));
-            nodeChildren.add(new DefaultTreeNode(new MenuItem("0102", "Cola de autorizaciones" , "/ei/configuracion.zul")));
-            nodeChildren.add(new DefaultTreeNode(new MenuItem("0103", "Enviar Guía de Remisión", "/ei/configuracion.zul")));
-            nodeChildren.add(new DefaultTreeNode(new MenuItem("0104", "Enviar Retención"       , "/ei/configuracion.zul")));
-            nodeChildren.add(new DefaultTreeNode(new MenuItem("0105", "Enviar Notas de Crédito", "/ei/configuracion.zul")));
-            nodeChildren.add(new DefaultTreeNode(new MenuItem("0106", "Enviar Notas de Débito" , "/ei/configuracion.zul")));
-            rootChildren.add(new DefaultTreeNode(new MenuItem("01", "Facturación electrónica", ""), nodeChildren));
-        }
-
-        rootChildren.add(new DefaultTreeNode(new MenuItem("version", "Versión", "")));
-        rootChildren.add(new DefaultTreeNode(new MenuItem("exit", "Salir",   "")));
-
-        TreeModel model = new DefaultTreeModel(new DefaultTreeNode(null, rootChildren));
-
-        return model;
     }
 
     @Listen("onClick=#rootTree")
@@ -72,12 +41,10 @@ public class TreeController extends SelectorComposer<Component>{
 
         //if (menuItem.getDescription().equals("Salir")){
         if (menuItem.getId().equals("exit")){
-            Executions.sendRedirect("/login.zul");
+            Executions.sendRedirect("/pages/login.zul");
             SecurityUtils.getSubject().logout();
         }
         
     }
     
 }
-
-

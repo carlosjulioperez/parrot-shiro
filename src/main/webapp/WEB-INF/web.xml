@@ -63,7 +63,7 @@
   </servlet-mapping>
   <welcome-file-list>
     <!-- <welcome&#45;file>/layout/index.zul</welcome&#45;file> -->
-    <welcome-file>index.zul</welcome-file>
+    <welcome-file>/pages/index.zul</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>

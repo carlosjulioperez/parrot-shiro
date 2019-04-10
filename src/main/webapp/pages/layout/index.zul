@@ -3,15 +3,15 @@
     <window id="indexWindow" apply="ec.cjpq.parrot.security.controller.IndexController" border="normal" height="100%">
         <borderlayout hflex="1" vflex="1">
             <west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
-                <include src="/layout/sidebar.zul"/>
+                <include src="/pages/layout/sidebar.zul"/>
             </west>
 
             <center id="mainContent" autoscroll="true">
-                <include src="/layout/main.zul"/>
+                <include src="/pages/layout/main.zul"/>
             </center>
 
             <!-- <south border="none"> -->
-            <!--     <include src="/layout/footer.zul"/> -->
+            <!--     <include src="/pages/layout/footer.zul"/> -->
             <!-- </south> -->
         </borderlayout>
     </window>

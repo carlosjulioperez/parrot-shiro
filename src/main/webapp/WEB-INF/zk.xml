@@ -1,0 +1,25 @@
+<?xm version="1.0" encoding="UTF-8"?>
+
+<!--
+	Created by ZK Studio
+-->
+
+<zk>
+	<device-config>
+		<device-type>ajax</device-type>
+		<timeout-uri>/timeout.zul</timeout-uri><!-- An empty URL can cause the browser to reload the same URL -->
+	</device-config>
+	
+    <library-property>
+        <name>org.zkoss.theme.preferred</name>
+        <value>iceblue_c</value>
+    </library-property>
+
+	<!-- Con este código se detiene el flujo para esperar por el ingreso del usuario en una ventana de diálogo -->
+	<!-- 
+	<system-config>
+		<disable-event-thread>false</disable-event-thread>
+	</system-config>
+	-->
+	
+</zk>

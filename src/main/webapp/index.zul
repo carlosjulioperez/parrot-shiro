@@ -1,0 +1,6 @@
+<window title="Bienvenido" border="normal" width="300px" mode="overlapped" position="center">
+    <!-- <label value="You are using: ${desktop.webApp.version}"/> -->
+    <label value="Presione el botón para continuar"/>
+    <separator/>
+    <button label="Iniciar sesión" onClick='Executions.getCurrent().sendRedirect("/login.zul")' />
+</window>

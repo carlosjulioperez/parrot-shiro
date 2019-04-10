@@ -1,0 +1,65 @@
+<?page title="Facturación electrónica" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Cola de Autorizaciones" apply="ec.cjpq.fe.ui.PanelComposer" border="normal" width="980px" height="600px" mode="embedded">
+		<vbox vflex="1" hflex="1">
+			<toolbar id="tb" >
+			    <toolbarbutton id="btnRefrescar" label="Refrescar" 	tooltiptext="Refrescar registros" image="/img/database_refresh.gif" />
+			    <toolbarbutton id="btnAutorizar" label="Autorizar"	tooltiptext="Autorizar comprobantes seleccionados" image="/img/database_gear.gif" />
+			    <toolbarbutton id="btnRide" 	 label="Ver RIDE" 	tooltiptext="Descargar Ride del comprobante seleccionado" image="/img/pdf.gif" />
+			    <toolbarbutton id="btnQuitar" 	 label="Quitar" 	tooltiptext="Quitar de la cola el comprobante seleccionado" image="/img/database_delete.gif" />
+			    <toolbarbutton id="btnMenu" 	 label="Menú" 		tooltiptext="Volver al menú principal" image="/img/house.gif" />
+			    <toolbarbutton id="btnSalir" 	 label="Logout" 	tooltiptext="Cerrar sesión" image="/img/salir.gif" />
+		    </toolbar>
+		
+			<listbox id="lbx" model="@{ctr.beans}" selectedItem="@{ctr.bean}" vflex="true" hflex="1" multiple="true" checkmark="true">
+				<listhead sizable="true">
+					<listheader width="80px">
+						<vbox hflex="1">
+							<label value="Comprobante" />
+   							<listbox id="lbxComp" mold="select" hflex="1" >
+   								<listitem label="*"  value="" selected="true"/>
+   								<listitem label="FA" value="FA" />
+   								<listitem label="NC" value="NC" />
+   								<listitem label="ND" value="ND" />
+   								<listitem label="RE" value="RE" />
+   								<listitem label="GR" value="GR" />
+   							</listbox>
+   						</vbox>
+					</listheader>
+					
+					<listheader width="80px" align="center"><label value="Fecha" /></listheader>
+					
+					<listheader width="80px" align="center"><label value="Número" /></listheader>
+					
+					<listheader width="80px" align="center"><label value="Total" /></listheader>
+
+					<listheader width="200px">
+						<vbox hflex="1">
+							<label value="Cliente" />
+							<textbox id="txtFilCliente" maxlength="64" hflex="1"/>
+						</vbox>
+					</listheader>
+					
+					<listheader>
+						<vbox hflex="1">
+    						<checkbox id="chkNoAutorizados" label="Ver NO autorizados" />
+							<label value="Mensaje" />
+							<textbox id="txtFilMensaje" hflex="1"/>
+						</vbox>
+					</listheader>
+				</listhead>
+				
+				<listitem self="@{each='o'}" value="@{o}">			
+					<listcell label="@{o.tipoComp}"/>
+					<listcell label="@{o.fecha}"/>
+					<listcell label="@{o.numeroSl}"/>
+					<listcell label="@{o.total}"/>
+					<listcell label="@{o.cliente}"/>
+					<listcell label="@{o.mensaje}"/>
+				</listitem>
+				
+			</listbox>
+			<paging id="pag" pageSize="5" />
+		</vbox>
+	</window>
+</zk>

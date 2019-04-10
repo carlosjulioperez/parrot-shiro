@@ -1,0 +1,82 @@
+<?page title="Facturación electrónica" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Datos de retenciones" apply="ec.cjpq.fe.ui.DatosRetencionComposer" border="normal" width="1200px" height="600px">
+		<vbox vflex="1" hflex="1">
+			<toolbar id="tb" >
+			    <toolbarbutton id="btnConsultar" label="Consultar"		tooltiptext="Consultar registro" image="/img/database_refresh.gif" />
+			    <toolbarbutton id="btnEnviarCola" label="Enviar a cola de autorizaciones" tooltiptext="Enviar el registro seleccionado a cola de autorizacione" image="/img/database_go.gif" />
+			    <toolbarbutton id="btnMenu" 	  label="Menú" 			tooltiptext="Volver al menú principal" image="/img/house.gif" />
+		    </toolbar>
+		    
+		   	<grid hflex="1">
+				<columns><column width="10%" /></columns>
+				<rows>
+					<row>
+						<label value="Proveedor" />
+						<textbox value="@{ctr.pojo.name}" hflex="1"/>
+					</row>
+					<row>
+						<label value="Tipo documento" />
+						<hbox align="center" hflex="1">
+							<textbox id="txtTipo" value="@{ctr.pojo.code}" maxlength="3" width="40px"/> <space />
+							
+							<label value="Secuencia documento" /> 
+							<textbox id="txtSecuencia" value="@{ctr.pojo.sec}" width="60px"/> <space />
+							
+							<label value="Tipo retención" />
+							<intbox value="@{ctr.pojo.tiporetId}" id="txtTipoRetencion" width="40px"/> <space />
+							
+							<label value="Fecha Desde (dd-mm-aaaa)"/>
+							<textbox id="txtFechaDesde" value="@{ctr.pojo.transdate}" maxlength="10" width="80px"/> <space />
+							
+							<label value="Fecha Hasta (dd-mm-aaaa)"/>
+							<textbox id="txtFechaHasta" value="@{ctr.pojo.transdateret}" maxlength="10" width="80px"/>
+						</hbox>
+					</row>
+				</rows>
+			</grid>
+			<listbox id="lbx" model="@{ctr.beans}" selectedItem="@{ctr.bean}" vflex="1" hflex="1">
+				<listhead>
+					<listheader label="Id" width="70px" />
+					<listheader label="Proveedor" width="430px"/>
+					<listheader label="Estab" width="50px" />
+					<listheader label="P.Emi" width="50px" />
+					<listheader label="Sec." width="70px" />
+					<listheader label="Fecha" width="90px" />
+					<listheader label="T.doc" width="50px"/>
+					<listheader label="T.ret" width="50px"/>
+
+					<!--  
+					<listheader label="Retención" />
+					<listheader label="Sec. ret." />
+					<listheader label="Fecha ret." />
+					-->
+					
+					<listheader label="Base 0" />
+					<listheader label="Base dif. 0" />
+					<listheader label="Base no IVA" />
+					<listheader label="Porc. ret." />
+					<listheader label="Valor ret." />
+				</listhead>
+				
+				<listitem self="@{each='o'}">			
+					<listcell label="@{o.id}"/>
+					<listcell label="@{o.name}"/>
+					<listcell label="@{o.estab}"/>
+					<listcell label="@{o.ptoemi}"/>
+					<listcell label="@{o.sec}"/>
+					<listcell label="@{o.transdate}"/>
+					<listcell label="@{o.code}"/>
+					<listcell label="@{o.tiporetId}"/>
+					<listcell label="@{o.base0}"/>
+					<listcell label="@{o.based0}"/>
+					<listcell label="@{o.baseni}"/>
+					<listcell label="@{o.porcret}"/>
+					<listcell label="@{o.valret}"/>
+				</listitem>
+				
+			</listbox>
+			<paging id="pag" pageSize="12" />
+		</vbox>
+	</window>
+</zk>

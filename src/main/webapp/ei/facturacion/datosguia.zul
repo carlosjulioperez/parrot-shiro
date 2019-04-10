@@ -1,0 +1,49 @@
+<?page title="Facturación electrónica" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Datos para Guía de Remisión" apply="ec.cjpq.fe.ui.DatosGuiaComposer" border="normal" width="800px" height="420px">
+		<vbox vflex="1" hflex="1">
+			<toolbar id="tb" >
+			    <toolbarbutton id="btnActualizar" label="Actualizar"	tooltiptext="Actualizar registro" image="/img/database_gear.gif" disabled="true" />
+			    <toolbarbutton id="btnMenu" 	  label="Menú" 			tooltiptext="Volver al menú principal" image="/img/house.gif" />
+		    </toolbar>
+		    
+		   	<grid vflex="1" hflex="1">
+				<columns><column width="30%" /></columns>
+				<rows>
+					<row>
+						<label value="Factura SQL-Ledger" />
+						<hbox align="center" hflex="1">
+							<textbox id="txtNumero"/>
+							<button id="btnBuscar" label="Buscar"/>
+							<button id="btnCancelar" label="Cancelar" visible="false"/>
+						</hbox>
+					</row>
+					<row>
+						<label value="Cliente" />
+						<textbox hflex="1" value="@{ctr.dato.destinatarioRazonSocial}" readonly="true"/>
+					</row>
+					<row>
+						<label value="Fecha"/>
+						<textbox value="@{ctr.dato.fecha}" readonly="true"/>
+					</row>
+					<row>
+						<label value="Transportista ID" />
+						<textbox id="txtTransportistaId" value="@{ctr.dato.transportistaId}" maxlength="13" />
+					</row>
+					<row>
+						<label value="Transportista Nombre" />
+						<textbox id="txtTransportistaRazonSocial" value="@{ctr.dato.transportistaRazonSocial}" maxlength="300" hflex="1" />
+					</row>
+					<row>
+						<label value="Placa" />
+						<textbox id="txtPlaca" value="@{ctr.dato.placa}" maxlength="20"/>
+					</row>
+					<row>
+						<label value="Motivo de traslado" />
+						<textbox id="txtMotivo" value="@{ctr.dato.motivoTraslado}" maxlength="300" hflex="1" />
+					</row>
+				</rows>
+			</grid>
+		</vbox>
+	</window>
+</zk>

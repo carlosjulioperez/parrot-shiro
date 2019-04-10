@@ -1,0 +1,20 @@
+Parrot
+	* Cargar variables de entorno desde LXDE:
+		$ source ~/.profile
+
+	* Jetty:
+		$ mvn jetty:run -Djetty.http.port=9090
+		$ mvn -q jetty:run -Djetty.http.port=9090
+
+	* Generación de proyecto:
+		
+		mvn archetype:generate -DgroupId=com.mycompany.app 
+		-DartifactId=my-app
+		-DarchetypeArtifactId=maven-archetype-quickstart 
+		-DarchetypeVersion=1.4 -DinteractiveMode=false
+
+		mvn archetype:generate -DgroupId=ec.cjpq.parrot -DartifactId=parrot -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4 -DinteractiveMode=false
+	* Test:
+		mvn test -Dtest=ec.cjpq.parrot.AppTest
+		mvn test -Dtest=ec.cjpq.parrot.sl.dao.EmployeeDaoTest
+

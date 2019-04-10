@@ -1,0 +1,9 @@
+<window width="500px" title="Session Timeout" border="normal">
+	<vbox>
+		<label value="La página no está disponible." />
+		<label value="Esto es causado normalmente cuando expira la sesión del usuario," />
+		<label value="cuando hay muchas páginas web abiertas o cuando se ha reiniciado el servidor." />
+		<separator/>
+		<button label="Regresar" onClick='Executions.getCurrent().sendRedirect("/menu.zul")' />
+	</vbox>
+</window>

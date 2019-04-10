@@ -1,0 +1,68 @@
+<zk>
+    <!-- <include src="/menu.zul"/> -->
+
+    <window title="Configuración y secuencias" apply="ec.cjpq.parrot.ei.controller.ConfiguracionController" border="none" width="800px" height="460px" >
+
+        <grid vflex="1" hflex="1" >
+            <columns><column width="30%" /></columns>
+            <rows>
+                <row>
+                    <label value="Login" />
+                    <hbox align="center" hflex="1">
+                        <textbox id="txtLogin" value="@{ctr.empleado.login}" />
+                        <button id="btnBuscar" label="Buscar"/>
+                        <textbox readonly="true" value="@{ctr.empleado.name}" hflex="1" />
+                    </hbox>
+                </row>
+                <row>
+                    <label value="Ruta archivo P12" />
+                    <hbox align="center" hflex="1">
+                        <textbox rows="2" value="@{ctr.empleado.p12Archivo}" hflex="1" />
+                        <button id="btnBuscarArchivo" disabled="true" label="Buscar P12"/>
+                    </hbox>
+                </row>
+                <row>
+                    <label value="Clave archivo P12" />
+                    <textbox value="@{ctr.empleado.p12Clave}" hflex="1" />
+                </row>
+                <row>
+                    <label value="Tipo de ambiente" />
+                    <hbox align="center">
+                        <intbox value="@{ctr.empleado.tipAmbiente}" maxlength="1" width="20px"/>
+                        <space />
+                        <label value="(1=Pruebas. 2=Producción)" />
+                    </hbox>
+                </row>
+                <row>
+                    <label value="Código establecimiento" />
+                    <hbox align="center">
+                        <textbox value="@{ctr.empleado.codEstabl}" width="40px" maxlength="3" />
+                        <space width="50px" />
+                        <label value="Punto de emisión" />
+                        <textbox value="@{ctr.empleado.codPtoEmi}" width="40px" maxlength="3" />
+                    </hbox>
+                </row>
+                <row>
+                    <label value="Secuencia factura" />
+                    <longbox value="@{ctr.empleado.secFactura}" />
+                </row>
+                <row>
+                    <label value="Secuencia Guía de Remisión" />
+                    <longbox value="@{ctr.empleado.secGremision}" />
+                </row>
+                <row>
+                    <label value="Secuencia Comprobante Retención" />
+                    <longbox value="@{ctr.empleado.secCretencion}" />
+                </row>
+                <row>
+                    <label value="Secuencia Nota de Crédito" />
+                    <longbox value="@{ctr.empleado.secNcredito}" />
+                </row>
+                <row>
+                    <label value="Secuencia Nota de Débito" />
+                    <longbox value="@{ctr.empleado.secNdebito}" />
+                </row>
+            </rows>
+        </grid>
+    </window>
+</zk>

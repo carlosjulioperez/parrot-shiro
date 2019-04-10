@@ -1,0 +1,18 @@
+<?page id="indexPage" title="Menú Principal" contentType="text/html;charset=UTF-8"?>
+<zk>
+    <window id="indexWindow" apply="ec.cjpq.parrot.security.controller.IndexController" border="normal" height="100%">
+        <borderlayout hflex="1" vflex="1">
+            <west width="260px" border="none" collapsible="true" splittable="true" minsize="300">
+                <include src="/layout/sidebar.zul"/>
+            </west>
+
+            <center id="mainContent" autoscroll="true">
+                <include src="/layout/main.zul"/>
+            </center>
+
+            <!-- <south border="none"> -->
+            <!--     <include src="/layout/footer.zul"/> -->
+            <!-- </south> -->
+        </borderlayout>
+    </window>
+</zk>

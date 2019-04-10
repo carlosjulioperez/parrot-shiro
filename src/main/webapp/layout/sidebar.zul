@@ -1,0 +1,22 @@
+<tree id="rootTree" hflex="0" vflex="1" apply="ec.cjpq.parrot.security.controller.TreeController">
+    <!-- <attribute name="onClick"> alert(self.getSelectedItem().getId());</attribute> -->
+    <!-- <treechildren> -->
+    <!--     <treeitem open="false" label="Facturación electrónica" id="ei"> -->
+    <!--         <!&#45;&#45; <treerow> &#45;&#45;> -->
+    <!--         <!&#45;&#45;     <treecell > &#45;&#45;> -->
+    <!--         <!&#45;&#45;         <label value="Facturación electrónica" style="font&#38;#45;weight:bold"/> &#45;&#45;> -->
+    <!--         <!&#45;&#45;     </treecell> &#45;&#45;> -->
+    <!--         <!&#45;&#45; </treerow> &#45;&#45;> -->
+    <!--         <treechildren> -->
+    <!--             <treeitem label="Configuración"           id="/ei/configuracion.zul"/> -->
+    <!--             <treeitem label="Cola de autorizaciones"  /> -->
+    <!--             <treeitem label="Enviar Guía de Remisión" /> -->
+    <!--             <treeitem label="Enviar Retención"        /> -->
+    <!--             <treeitem label="Enviar Notas de Crédito" /> -->
+    <!--             <treeitem label="Enviar Notas de Débito"  /> -->
+    <!--         </treechildren> -->
+    <!--     </treeitem> -->
+    <!--     <treeitem label="Versión" /> -->
+    <!--     <treeitem label="Salir" /> -->
+    <!-- </treechildren> -->
+</tree>

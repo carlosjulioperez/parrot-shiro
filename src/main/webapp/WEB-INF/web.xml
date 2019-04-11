@@ -13,36 +13,18 @@
         <listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
     </listener>
 
-    <!-- <filter> -->
-    <!--     <filter&#45;name>ShiroFilter</filter&#45;name> -->
-    <!--     <filter&#45;class>org.apache.shiro.web.servlet.IniShiroFilter</filter&#45;class> -->
-    <!--     <init&#45;param> -->
-    <!--         <param&#45;name>configPath</param&#45;name> -->
-    <!--         <param&#45;value>classpath:shiro.ini</param&#45;value> -->
-    <!--     </init&#45;param> -->
-    <!-- </filter> -->
-    <!--  -->
-    <!-- <filter&#45;mapping> -->
-    <!--     <filter&#45;name>ShiroFilter</filter&#45;name> -->
-    <!--     <url&#45;pattern>/*</url&#45;pattern> -->
-    <!-- </filter&#45;mapping> -->
-
-    <listener>
-        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
-    </listener>
-
     <filter>
         <filter-name>ShiroFilter</filter-name>
-        <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+        <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+        <init-param>
+            <param-name>configPath</param-name>
+            <param-value>classpath:shiro.ini</param-value>
+        </init-param>
     </filter>
 
     <filter-mapping>
         <filter-name>ShiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
-        <dispatcher>REQUEST</dispatcher> 
-        <dispatcher>FORWARD</dispatcher> 
-        <dispatcher>INCLUDE</dispatcher> 
-        <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
     <session-config>

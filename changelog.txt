@@ -18,3 +18,5 @@ Parrot
 		mvn test -Dtest=ec.cjpq.parrot.AppTest
 		mvn test -Dtest=ec.cjpq.parrot.sl.dao.EmployeeDaoTest
 
+	* Sql:
+		# psql oymar -a -f ~/local/projects/parrot/src/test/resources/script.sql

@@ -9,6 +9,7 @@ import org.apache.shiro.subject.Subject;
 import org.zkoss.zul.DefaultTreeModel;
 import org.zkoss.zul.DefaultTreeNode;
 import org.zkoss.zul.TreeModel;
+import ec.cjpq.parrot.util.Module;
 
 public class MenuTreeModel {
 
@@ -19,7 +20,8 @@ public class MenuTreeModel {
         List<DefaultTreeNode<MenuItem>> root = new ArrayList<DefaultTreeNode<MenuItem>>();
 
         Subject currentUser = SecurityUtils.getSubject();
-        if (currentUser.hasRole("ei")) {
+        // if (currentUser.hasRole("ei")) {
+        if ( currentUser.hasRole(Module.EI.toString() )) {
             List<DefaultTreeNode<MenuItem>> branch = new ArrayList<DefaultTreeNode<MenuItem>>();
             branch.add(new DefaultTreeNode(new MenuItem("0101", "Configuración",           "/pages/ei/configuration.zul")));
             branch.add(new DefaultTreeNode(new MenuItem("0102", "Cola de autorizaciones" , "/pages/ei/panel.zul")));
